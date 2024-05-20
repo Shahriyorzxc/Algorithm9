@@ -107,7 +107,7 @@ def add_indexes(lst):
     index = 0
     lst1 = []
     for i in lst:
-        lst.append(i + index)
+        lst1.append(i + index)
         index += 1
     return lst1
 
@@ -186,5 +186,144 @@ print(add_indexes([5, 5, 5, 5, 5]))
 
 
 
-#Task7
+# #Task7
+# def list_operation(x, y, n):
+#     result = []
+#     for i in range(x, y + 1):
+#         if i % n == 0:
+#             result.append(i)
+#     return result
+#
+#
+# print(list_operation(1, 10, 3)) # ---> [3, 6, 9]
+# print(list_operation(7, 9, 2)) # ---> [8]
+# print(list_operation(15, 20, 7)) # ---> []
+#
+# def list_operation(x, y, n): # 2 Yoli
+#     return [i for i in range(x, y+1) if i % n == 0]
+#
+#
+# print(list_operation(1, 10, 3)) # ---> [3, 6, 9]
+# print(list_operation(7, 9, 2)) # ---> [8]
+# print(list_operation(15, 20, 7)) # ---> []
+#
 
+#Task8
+def society_name(friends):
+    lst = []
+    for zxc in friends:
+        lst += zxc[0]
+    return "".join(sorted(lst))
+
+
+print(society_name(["Adam", "Sarah", "Malcolm"])) # ---> "AMS"
+print(society_name(["Harry", "Newt", "Luna", "Cho"])) # ---> "CHLN"
+print(society_name(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"])) # ---> "CJMPRR"
+
+
+def society_name(friends): # 2 Yoli
+    return "".join(sorted(zxc[0] for zxc in friends))
+
+
+print(society_name(["Adam", "Sarah", "Malcolm"])) # ---> "AMS"
+print(society_name(["Harry", "Newt", "Luna", "Cho"])) # ---> "CHLN"
+print(society_name(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"])) # ---> "CJMPRR"
+
+
+#Task9
+# def unique_sort(lst):
+#     return sorted(set(lst))
+#
+#
+# print(unique_sort([1, 2, 4, 3]))  # ---> [1, 2, 3, 4]
+# print(unique_sort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2]))  # ---> [1, 2, 3, 4]
+# print(unique_sort([6, 7, 3, 2, 1]))  # ---> [1, 2, 3, 6, 7]
+
+
+#Task10
+def setify(lst):
+    return list(set(lst))
+
+
+print(setify([1, 3, 3, 5, 5])) # ---> [1, 3, 5]
+print(setify([4, 4, 4, 4])) # ---> [4]
+print(setify([5, 7, 8, 9, 10, 15])) # ---> [5, 7, 8, 9, 10, 15]
+print(setify([3, 3, 3, 2, 1])) # ---< [1, 2, 3]
+
+
+#Task11
+def get_student_names(students):
+    return sorted(students.values())
+
+
+print(get_student_names({
+  "Student 1" : "Steve",
+  "Student 2" : "Becky",
+  "Student 3" : "John"
+}))  # ---> ["Becky", "John", "Steve"]
+
+
+
+#Task12
+def greet_people(names):
+    return ", ".join([f"Hello{name}" for name in names])
+
+
+print(greet_people(["Joe"])) # ---> "Hello Joe"
+print(greet_people(["Angela", "Joe"])) # ---> "Hello Angela, Hello Joe"
+print(greet_people(["Frank", "Angela", "Joe"])) # ---> "Hello Frank, Hello Angela, Hello Joe"
+
+
+
+
+def greet_people(names): #2 Toli
+    str = " "
+    for name in names:
+        str += f"Hello{name}, "
+    return str[:-2]
+
+
+print(greet_people(["Joe"])) # ---> "Hello Joe"
+print(greet_people(["Angela", "Joe"])) # ---> "Hello Angela, Hello Joe"
+print(greet_people(["Frank", "Angela", "Joe"])) # ---> "Hello Frank, Hello Angela, Hello Joe"
+
+
+#Task13
+def total_volume(*boxes):
+    t = 0
+    for b in boxes:
+        v = 1
+        for s in b:
+            v *= s
+        t += v
+    return t
+
+
+print(total_volume([4, 2, 4], [3, 3, 3], [1, 1, 2], [2, 1, 1])) # ---> 63
+print(total_volume([2, 2, 2], [2, 1, 1])) # ---> 10
+print(total_volume([1, 1, 1])) # ---> 1
+
+
+
+#Task14
+def integer_boolean(a):
+    lst_bool = []
+    for x in a:
+        lst_bool.append(bool(int(x)))
+    return lst_bool
+
+
+print(integer_boolean("100101")) # ---> [True, False, False, True, False, True]
+print(integer_boolean("10")) # ---> [True, False]
+print(integer_boolean("001")) # ---> [False, False, True]
+
+
+
+#Task15
+def is_subset(lst1, lst2):
+    return set(lst1) <= set(lst2)
+
+
+print(is_subset([3, 2, 5], [5, 3, 7, 9, 2]))  # ---> True
+print(is_subset([8, 9], [7, 1, 9, 8, 4, 5, 6]))  # ---> True
+print(is_subset([1, 2], [3, 5, 9, 1]))  # ---> False
